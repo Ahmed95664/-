@@ -1,0 +1,115 @@
+<!DOCTYPE html>
+<html lang="ar">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>الجوكر ستور - شحن جواهر فري فاير</title>
+  <style>
+    body {
+      font-family: Arial, sans-serif;
+      background: #121212;
+      color: #eee;
+      margin: 0;
+      padding: 0;
+      direction: rtl;
+    }
+    header {
+      background: #ff0000;
+      padding: 20px;
+      text-align: center;
+      font-size: 2em;
+      font-weight: bold;
+      letter-spacing: 2px;
+    }
+    main {
+      max-width: 600px;
+      margin: 20px auto;
+      background: #1e1e1e;
+      padding: 20px;
+      border-radius: 8px;
+    }
+    label {
+      display: block;
+      margin-top: 15px;
+      font-weight: bold;
+    }
+    select, input[type="text"], input[type="number"] {
+      width: 100%;
+      padding: 8px;
+      margin-top: 5px;
+      border-radius: 5px;
+      border: none;
+      font-size: 1em;
+      background: #333;
+      color: #eee;
+    }
+    button {
+      background: #ff0000;
+      border: none;
+      padding: 15px;
+      margin-top: 20px;
+      color: white;
+      font-weight: bold;
+      width: 100%;
+      font-size: 1.2em;
+      cursor: pointer;
+      border-radius: 5px;
+      transition: background 0.3s ease;
+    }
+    button:hover {
+      background: #cc0000;
+    }
+    footer {
+      text-align: center;
+      margin-top: 30px;
+      font-size: 0.9em;
+      color: #888;
+    }
+  </style>
+</head>
+<body>
+  <header>الجوكر ستور</header>
+
+  <main>
+    <form id="orderForm">
+      <label for="ffId">أدخل رقم ID فري فاير:</label>
+      <input type="text" id="ffId" name="ffId" placeholder="مثلاً 123456789" required />
+
+      <label for="package">اختر كمية الجواهر أو العضوية:</label>
+      <select id="package" name="package" required>
+        <option value="" disabled selected>اختر</option>
+        <option value="100">100 جوهرة - 2,500 جنيه</option>
+        <option value="310">310 جواهر - 7,500 جنيه</option>
+        <option value="520">520 جواهر - 12,000 جنيه</option>
+        <option value="عضوية">عضوية أسبوعية - 3,000 جنيه</option>
+      </select>
+
+      <label for="whatsapp">رقم واتساب للتواصل:</label>
+      <input type="text" id="whatsapp" name="whatsapp" placeholder="مثلاً 01012345678" required />
+
+      <button type="submit">أطلب الآن</button>
+    </form>
+    <div id="result" style="margin-top:18px;text-align:center;font-weight:bold;"></div>
+  </main>
+
+  <footer>
+    &copy; 2025 الجوكر ستور. جميع الحقوق محفوظة.
+  </footer>
+
+  <script>
+    document.getElementById('orderForm').addEventListener('submit', function(e) {
+      e.preventDefault();
+      var id = document.getElementById('ffId').value.trim();
+      var pkg = document.getElementById('package').value;
+      var wa = document.getElementById('whatsapp').value.trim();
+      var result = document.getElementById('result');
+      if(id && pkg && wa){
+        result.innerHTML = 'تم استلام طلبك! سنتواصل معك عبر واتساب قريباً.';
+        this.reset();
+      } else {
+        result.innerHTML = 'يرجى ملء جميع الحقول.';
+      }
+    });
+  </script>
+</body>
+</html>
